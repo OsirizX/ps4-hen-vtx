@@ -175,8 +175,7 @@ PAYLOAD_CODE int shellcore_fpkg_patch(void)
 	};
 
 	uint32_t ext_hdd_patch_offsets[] = {
-		ext_hdd_patch1,
-		ext_hdd_patch2,
+		ext_hdd_patch,
 	};
 
 	uint8_t xor__eax_eax__inc__eax[5] = { 0x31, 0xC0, 0xFF, 0xC0, 0x90 };
@@ -216,8 +215,8 @@ PAYLOAD_CODE int shellcore_fpkg_patch(void)
 	if (ret) 
 		goto error;
 
-	// enable fpkg for patches 6.72
-	ret = proc_write_mem(ssc, (void *)(text_seg_base + enable_fpkg_patch), 8, "\xE9\x98\x00\x00\x00\x90\x90\x90", &n); // 6.72
+	// enable fpkg for patches 5.55
+	ret = proc_write_mem(ssc, (void *)(text_seg_base + enable_fpkg_patch), 8, "\xE9\x98\x00\x00\x00\x90\x90\x90", &n); // 5.55
 	if (ret)
 		goto error;
 
@@ -319,8 +318,8 @@ PAYLOAD_CODE int shellui_patch(void)
         goto error;
     }
 
-    // enable remote play menu - credits to Aida 6.72
-	ret = proc_write_mem(ssui, (void *)(app_base  + remote_play_menu_patch), 5, "\xE9\xBA\x02\x00\x00", &n); // 6.72
+    // enable remote play menu - credits to Aida 5.55
+	ret = proc_write_mem(ssui, (void *)(app_base  + remote_play_menu_patch), 5, "\xE9\xBA\x02\x00\x00", &n); // 5.55
 
     for (int i = 0; i < num_entries; i++) {
         if (!memcmp(entries[i].name, "libkernel_sys.sprx", 18) && (entries[i].prot >= (PROT_READ | PROT_EXEC))) {
