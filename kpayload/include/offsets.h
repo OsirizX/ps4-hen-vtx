@@ -13,8 +13,8 @@
 #define SBL_KEYMGR_KEY_SLOTS_addr       0x265B700
 #define SBL_KEYMGR_KEY_RBTREE_addr      0x265B710
 #define SBL_KEYMGR_BUF_VA_addr          0x265C000
-#define SBL_KEYMGR_BUF_GVA_addr         0x265C830
-#define FPU_CTX_addr                    0x266CD40
+#define SBL_KEYMGR_BUF_GVA_addr         0x265C808
+#define FPU_CTX_addr                    0x265B040
 #define DIPSW_addr                      0x22BFF50
 
 // common
@@ -62,7 +62,7 @@
 
 // Fself hooks
 #define sceSblAuthMgrIsLoadable__sceSblACMgrGetPathId_hook          0x65588D
-#define sceSblAuthMgrIsLoadable2_hook                               0x6559d1
+#define sceSblAuthMgrIsLoadable2_hook                               0x6559D1
 #define sceSblAuthMgrVerifyHeader_hook1                             0x65612C
 #define sceSblAuthMgrVerifyHeader_hook2                             0x656DD8
 #define sceSblAuthMgrSmLoadSelfSegment__sceSblServiceMailbox_hook   0x658D13
@@ -106,12 +106,12 @@
 
 // enable fpkg
 #define enable_fpkg_patch               0x3DE982
- 
+
 // debug pkg free string
 #define fake_free_patch                 0xF196B0
 
 // make pkgs installer working with external hdd
-#define pkg_installer_patch             0x9E30B2
+#define pkg_installer_patch             0x97DB91
 
 // enable support with 6.xx external hdd
 #define ext_hdd_patch                   0x59CB5D
@@ -120,6 +120,6 @@
 #define debug_trophies_patch            0x6B9529
 
 // disable screenshot block
-#define disable_screenshot_patch        0x0D47CB
+#define disable_screenshot_patch        0x0D4766
 
 #endif

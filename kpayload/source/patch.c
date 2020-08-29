@@ -319,7 +319,7 @@ PAYLOAD_CODE int shellui_patch(void)
     }
 
     // enable remote play menu - credits to Aida 5.55
-	ret = proc_write_mem(ssui, (void *)(app_base  + remote_play_menu_patch), 5, "\xE9\xBA\x02\x00\x00", &n); // 5.55
+	ret = proc_write_mem(ssui, (void *)(app_base  + remote_play_menu_patch), 5, "\xE9\xB8\x02\x00\x00", &n); // 5.55
 
     for (int i = 0; i < num_entries; i++) {
         if (!memcmp(entries[i].name, "libkernel_sys.sprx", 18) && (entries[i].prot >= (PROT_READ | PROT_EXEC))) {

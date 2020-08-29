@@ -78,8 +78,8 @@ int install_payload(struct thread *td, struct install_payload_args* args)
 	// spoof sdk_version - enable vr
 	*(uint32_t *)(kernel_base + sdk_version_patch) = FAKE_FW_VERSION;
 
-	// enable debug log
-	*(uint16_t*)(kernel_base + enable_debug_log_patch) = 0x38EB;
+	// enable debug log 5.55
+	*(uint16_t*)(kernel_base + enable_debug_log_patch) = 0x3BEB;
 
 	// enable uart output
 	*(uint32_t *)(kernel_base + enable_uart_patch) = 0;
